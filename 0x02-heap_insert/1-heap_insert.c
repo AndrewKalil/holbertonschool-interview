@@ -1,8 +1,5 @@
 #include "binary_trees.h"
 
-
-
-/*                         Insert function                          */
 /**
  * height - return the height of a binary tree
  * @tree: binary tree to go through
@@ -57,11 +54,7 @@ heap_t *insert(heap_t *head, int value)
 		new = insert(head->right, value);
 	return (new);
 }
-/*                     End of insert function                       */
 
-
-
-/*                         Order fucntion                           */
 /**
  * swap - swap two nodes in order to respect max heap order
  * @lo: leaf with smaller n
@@ -132,8 +125,6 @@ heap_t *order(heap_t *head, heap_t **root)
 		return (swap(head, head->right, 2, root));
 	return (head);
 }
-/*                     End of order function                        */
-
 
 /**
  * heap_insert - inserts a value into a Max Binary Heap:
