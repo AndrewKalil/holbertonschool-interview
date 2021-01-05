@@ -3,15 +3,15 @@
 
 
 def minOperations(n):
-    count = 0
     if type(n) != int or n < 0:
         return 0
 
-    if n % 2 != 0:
-        n -= 1
-    while n > 1:
-        count += 1
-        count += 1
-        n = n / 2
-
-    return int(count)
+    res = 0
+    i = 2
+    while i <= n:
+        if n % i == 0:
+            res += i
+            n = n / i
+            i = i - 1
+        i = i + 1
+    return int(res)
