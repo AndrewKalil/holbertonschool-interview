@@ -6,30 +6,54 @@
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
  */
 
+// int is_palindrome(listint_t **head)
+// {
+// 	listint_t *current;
+// 	int array[1000], i = 0, j;
+
+// 	if (head == NULL)
+// 	return (1);
+
+// 	current = *head;
+
+// 	while (current)
+// 	{
+// 		array[i] = current->n;
+// 		current = current->next;
+// 		i++;
+// 	}
+// 	i--;
+
+// 	for (j = 0; j <= i; j++)
+// 	{
+// 		/* printf("value of i, j: %d, %d\n", i, j); */
+// 		if (array[i] != array[j])
+// 		return (0);
+// 		i--;
+// 	}
+// 	return (1);
+// }
 int is_palindrome(listint_t **head)
 {
-	listint_t *current;
-	int array[1000], i = 0, j;
+	listint_t *cp;
+	int len = 0, i = 0, r = 0;
+	int array[1000000];
 
-	if (head == NULL)
-	return (1);
-
-	current = *head;
-
-	while (current)
-	{
-		array[i] = current->n;
-		current = current->next;
-		i++;
-	}
-	i--;
-
-	for (j = 0; j <= i; j++)
-	{
-		/* printf("value of i, j: %d, %d\n", i, j); */
-		if (array[i] != array[j])
+	if (!head)
 		return (0);
-		i--;
+
+	cp = *head;
+	while (cp != NULL)
+	{
+		array[len] = cp->n;
+		len++;
+		cp = cp->next;
+	}
+
+	for (i = 0, r = len - 1; i < (len / 2); i++, r--)
+	{
+		if (array[i] != array[r])
+			return (0);
 	}
 	return (1);
 }
