@@ -8,28 +8,29 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *current;
-	int array[1000], i = 0, j;
+	listint_t *tmp;
+	int i, size = 0;
+	listint_t *array[3000];
 
-	if (head == NULL)
-	return (1);
-
-	current = *head;
-
-	while (current)
-	{
-		array[i] = current->n;
-		current = current->next;
-		i++;
-	}
-	i--;
-
-	for (j = 0; j <= i; j++)
-	{
-		/* printf("value of i, j: %d, %d\n", i, j); */
-		if (array[i] != array[j])
+	if (!head)
 		return (0);
-		i--;
+	if (!(*head) || !(*head)->next)
+		return (1);
+	for (i = 0; i < 3000; i++)
+		array[i] = NULL;
+	tmp = *head;
+	while (tmp)
+	{
+		array[size] = tmp;
+		size++;
+		tmp = tmp->next;
+	}
+	for (i = 0; i < (size / 2); i++)
+	{
+		if (array[i]->n != array[size - 1 - i]->n)
+		{
+			return (0);
+		}
 	}
 	return (1);
 }
