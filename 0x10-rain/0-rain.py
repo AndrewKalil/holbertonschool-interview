@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
+""" Rain Algorithm """
+
 
 def rain(walls):
+    """Algorithm that calculates water retained
+
+    Args:
+        walls (list): list of walls and their width
+
+    Returns:
+        number: quantity of water retained
+    """
     if not isinstance(walls, list) and len(walls) < 2:
         return 0
 
