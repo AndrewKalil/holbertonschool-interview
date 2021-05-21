@@ -16,7 +16,7 @@ void print_num(int *arrint, int size)
 	}
 
 	for (i = 0; arrint[i] == 0; i++)
-	  ;
+	    ;
 
 	while (i < size)
 	{
